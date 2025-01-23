@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Transaction>
+
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<h2>My Transactions</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Transfer</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var transaction in Model)
+        {
+            <tr>
+                <td>@transaction.Date.ToString("g")</td>
+                <td>@transaction.Amount</td>
+                <td>@transaction.Transfer</td>
+            </tr>
+        }
+    </tbody>
+</table>

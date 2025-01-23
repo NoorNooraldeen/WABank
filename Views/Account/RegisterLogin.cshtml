@@ -1,0 +1,111 @@
+﻿@model RegisterLoginViewModel
+@{
+    ViewData["Title"] = "RegisterLogin";
+    Layout = null;
+}
+<link href="~/css/bootstrap.css" rel="stylesheet">
+<link href="~/css/style.css" rel="stylesheet">
+<link href="~/css/responsive.css" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Nunito+Sans:wght@300;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- Color Switcher Mockup -->
+<link href="~/css/color-switcher-design.css" rel="stylesheet">
+
+<!-- Color Themes -->
+<link id="theme-color-file" href="~/css/color-themes/default-theme.css" rel="stylesheet">
+
+<link rel="shortcut icon" href="~/images/favicon.png" type="image/x-icon">
+<link rel="icon" href="~/images/favicon.png" type="image/x-icon">
+
+<!-- Responsive -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+<section class="register-section">
+    <div class="auto-container">
+        <div class="row clearfix">
+
+            <!--Form Column-->
+            <div class="form-column column col-lg-6 col-md-12 col-sm-12">
+
+                <div class="sec-title">
+                    <h2>Login Now</h2>
+                    <div cl ass="separate"></div>
+                </div>
+
+                <!--Login Form-->
+                <div class="styled-form login-form">
+                    <form method="post" asp-action="Login" asp-controller="Account">
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <div class="form-group">
+                            <span class="adon-icon"><span class="fa fa-envelope-o"></span></span>
+                            <input asp-for="LoginVM.Email" placeholder="Emai Address*">
+                        </div>
+                        <div class="form-group">
+                            <span class="adon-icon"><span class="fa fa-unlock-alt"></span></span>
+                            <input asp-for="LoginVM.Password" placeholder="Enter Password">
+                        </div>
+                        <div class="clearfix">
+                            <div class="form-group pull-left">
+                                <button type="submit" class="theme-btn btn-style-three"><span class="txt">Login</span></button>
+                            </div>
+                        </div>
+
+                        <div class="form-check form-switch">
+                            <input asp-for="LoginVM.RememberMe" class="form-check-input btn-lg" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                            <label class="form-check-label" for="flexSwitchCheckDefault">Remember Me</label>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+
+            <!--Form Column-->
+            <div class="form-column column col-lg-6 col-md-12 col-sm-12">
+
+                <div class="sec-title">
+                    <h2>Register Here</h2>
+                    <div class="separate"></div>
+                </div>
+
+                <!--Register Form-->
+                <div class="styled-form register-form">
+                    <form method="post" asp-action="Register" asp-controller="Account">
+                        <div class="text-danger">
+                            @Html.ValidationMessage("LoginError")
+                        </div>
+                        <div class="form-group">
+                            <span class="adon-icon"><span class="fa fa-envelope-o"></span></span>
+                            <input asp-for="RegisterVM.Email" placeholder="Email Address*">
+                        </div>
+                        <div class="form-group">
+                            <span class="adon-icon"><span class="fa fa-envelope-o"></span></span>
+                            <input asp-for="RegisterVM.ConfirmEmail" placeholder="Confirm Email Address*">
+                        </div>
+                        <div class="form-group">
+                            <span class="adon-icon"><span class="fa fa-unlock-alt"></span></span>
+                            <input asp-for="RegisterVM.Password" placeholder="Enter Password">
+                        </div>
+                        <div class="form-group">
+                            <span class="adon-icon"><span class="fa fa-unlock-alt"></span></span>
+                            <input asp-for="RegisterVM.ConfirmPassword" placeholder="Confirm Password">
+                        </div>
+                        <div class="form-group">
+                            <span class="adon-icon"><span class="fa fa-unlock-alt"></span></span>
+                            <input asp-for="RegisterVM.Mobile" placeholder="Enter Mobile">
+                        </div>
+                        <div class="clearfix">
+                            <div class="form-group pull-left">
+                                <button type="submit" value="Register" class="theme-btn btn-style-three"><span class="txt">Register</span></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
